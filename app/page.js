@@ -1,40 +1,94 @@
 "use client";
-import {useMemo,useState} from "react";
 
-const dyspnea=[
-"No breathlessness except with strenuous exercise",
-"Breathless when hurrying or walking up a slight hill",
-"Walks slower than people of same age due to breathlessness or has to stop for breath when walking at own pace",
-"Stops for breath after walking about 100 meters or after a few minutes",
-"Too breathless to leave house or breathless when dressing"
-];
-const therapy={
-A:{title:"Group A — Less symptomatic, low exacerbation risk",text:"A bronchodilator; a long-acting bronchodilator is preferred except with very occasional breathlessness."},
-B:{title:"Group B — More symptomatic, low exacerbation risk",text:"Initial LABA + LAMA combination therapy is generally preferred."},
-E:{title:"Group E — Exacerbation-prone",text:"Initial LABA + LAMA is generally preferred. Consider LABA + LAMA + ICS when blood eosinophils are high (for example ≥300 cells/µL) and after individual clinical assessment."}
-};
-export default function Home(){
- const [cat,setCat]=useState(10),[mmrc,setMmrc]=useState(1),[exac,setExac]=useState(0),[hosp,setHosp]=useState(false),[fev,setFev]=useState(70),[ratio,setRatio]=useState(0.65);
- const group=exac>=2||hosp?"E":(mmrc>=2||cat>=10?"B":"A");
- const grade=fev>=80?"GOLD 1":fev>=50?"GOLD 2":fev>=30?"GOLD 3":"GOLD 4";
- const confirmed=ratio<0.7;
- return <main>
-  <header><div className="eyebrow">Clinical decision support</div><h1>COPD Assessment & Treatment</h1><p>Structured COPD assessment using symptoms, exacerbation history and post-bronchodilator spirometry.</p></header>
-  <div className="grid">
-   <section className="card"><h2>Patient assessment</h2>
-    <label>CAT score <b>{cat}</b><input type="range" min="0" max="40" value={cat} onChange={e=>setCat(+e.target.value)}/></label>
-    <label>mMRC dyspnea grade<select value={mmrc} onChange={e=>setMmrc(+e.target.value)}>{dyspnea.map((x,i)=><option value={i} key={x}>{i} — {x}</option>)}</select></label>
-    <label>Moderate exacerbations in previous year<input type="number" min="0" max="20" value={exac} onChange={e=>setExac(+e.target.value)}/></label>
-    <label className="check"><input type="checkbox" checked={hosp} onChange={e=>setHosp(e.target.checked)}/> ≥1 exacerbation requiring hospitalization</label>
-    <label>Post-bronchodilator FEV1/FVC<input type="number" step=".01" min="0" max="1.5" value={ratio} onChange={e=>setRatio(+e.target.value)}/></label>
-    <label>FEV1 % predicted<input type="number" min="1" max="150" value={fev} onChange={e=>setFev(+e.target.value)}/></label>
-   </section>
-   <section>
-    <div className={"status "+(confirmed?"ok":"warn")}><span>{confirmed?"Airflow obstruction present":"COPD not confirmed by this value"}</span><strong>{confirmed?"Post-BD FEV1/FVC < 0.70":"Post-BD FEV1/FVC ≥ 0.70"}</strong></div>
-    <div className="card result"><div className="pill">{group}</div><h2>{therapy[group].title}</h2><p>{therapy[group].text}</p><hr/><h3>Airflow limitation: {grade}</h3><p>FEV1 {fev}% predicted. GOLD spirometric grade should be interpreted after COPD is confirmed and alongside the full clinical picture.</p></div>
-    <div className="card"><h3>Before final treatment</h3><p>Confirm diagnosis and phenotype, smoking/exposure status, inhaler technique and adherence, vaccination, pulmonary rehabilitation/activity, oxygen indication where relevant, comorbidities and exacerbation triggers. Treatment should be individualized by a clinician.</p></div>
-   </section>
-  </div>
-  <footer>Clinical support tool • Not a substitute for clinician judgment • Do not enter identifiable patient information unless an appropriate secure backend is configured.</footer>
- </main>
+import { useState } from "react";
+import PatientInformation from "./components/PatientInformation";
+import ClinicalAssessment from "./components/ClinicalAssessment";
+import DiagnosisTreatment from "./components/DiagnosisTreatment";
+import KnowledgeBase from "./components/KnowledgeBase";
+
+const SECTIONS = ["Patient Information", "Clinical Assessment", "Diagnosis & Treatment", "Knowledge Base"];
+
+export default function Home() {
+  const [section, setSection] = useState(SECTIONS[0]);
+  const [patientInfo, setPatientInfo] = useState({});
+  const [assessment, setAssessment] = useState({});
+  const [patientData, setPatientData] = useState({});
+  const [assessmentComplete, setAssessmentComplete] = useState(false);
+  const [reportUrl, setReportUrl] = useState(null);
+
+  function handleAssessmentComplete(results) {
+    setPatientData((prev) => ({ ...prev, ...patientInfo, ...results }));
+    setAssessmentComplete(true);
+    setSection("Diagnosis & Treatment");
+  }
+
+  function handleSaveReport({ goldGroup, groupInfo, considerations }) {
+    const report = {
+      assessment_date: new Date().toISOString(),
+      patient_data: patientData,
+      diagnosis: {
+        GOLD_group: goldGroup,
+        group_description: groupInfo.name,
+        treatment_strategy: groupInfo.treatment,
+      },
+      recommendations: {
+        medications: groupInfo.medications,
+        special_considerations: considerations,
+      },
+    };
+    const blob = new Blob([JSON.stringify(report, null, 4)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    setReportUrl(url);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `COPD_Assessment_${patientData.patient_id || "unknown"}_${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  return (
+    <main>
+      <header>
+        <div className="eyebrow">Clinical decision support</div>
+        <h1>🫁 COPD Assessment &amp; Treatment System</h1>
+        <p>Structured COPD assessment using symptoms, exacerbation history and post-bronchodilator spirometry, based on GOLD 2026 guidelines.</p>
+      </header>
+
+      <nav className="nav">
+        {SECTIONS.map((s) => (
+          <button
+            key={s}
+            className={"nav-item" + (section === s ? " active" : "")}
+            onClick={() => setSection(s)}
+          >
+            {s}
+          </button>
+        ))}
+      </nav>
+
+      <div className="content">
+        {section === "Patient Information" && (
+          <PatientInformation patientData={patientInfo} setPatientData={setPatientInfo} />
+        )}
+        {section === "Clinical Assessment" && (
+          <ClinicalAssessment
+            assessment={assessment}
+            setAssessment={setAssessment}
+            onComplete={handleAssessmentComplete}
+          />
+        )}
+        {section === "Diagnosis & Treatment" && (
+          <DiagnosisTreatment
+            patientData={patientData}
+            assessmentComplete={assessmentComplete}
+            onSaveReport={handleSaveReport}
+          />
+        )}
+        {section === "Knowledge Base" && <KnowledgeBase />}
+      </div>
+
+      <footer>Clinical support tool • Not a substitute for clinician judgment • Do not enter identifiable patient information unless an appropriate secure backend is configured.</footer>
+    </main>
+  );
 }

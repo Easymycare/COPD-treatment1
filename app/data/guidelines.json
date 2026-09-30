@@ -1,0 +1,284 @@
+{
+  "version": "GOLD 2026",
+  "last_updated": "2026-01-14",
+  "classification_system": {
+    "name": "GOLD ABE System",
+    "description": "Simplified classification based on symptoms and exacerbation risk",
+    "groups": {
+      "A": {
+        "name": "Less Symptomatic, Low Risk",
+        "criteria": {
+          "symptoms": {
+            "mMRC": "0-1",
+            "CAT": "<10"
+          },
+          "exacerbations": {
+            "count": 0,
+            "hospitalization": false
+          }
+        },
+        "treatment_strategy": "Single long-acting bronchodilator (LAMA or LABA)",
+        "first_line": [
+          {
+            "class": "LAMA",
+            "rationale": "Preferred due to slightly better exacerbation protection",
+            "options": [
+              "Tiotropium 18 mcg once daily (DPI) or 2.5 mcg 2 inhalations once daily (SMI)",
+              "Aclidinium 400 mcg twice daily",
+              "Umeclidinium 62.5 mcg once daily",
+              "Glycopyrrolate 50 mcg once daily"
+            ]
+          },
+          {
+            "class": "LABA",
+            "rationale": "Alternative if LAMA not tolerated or contraindicated",
+            "options": [
+              "Salmeterol 50 mcg twice daily",
+              "Formoterol 20 mcg twice daily",
+              "Indacaterol 75-150 mcg once daily",
+              "Olodaterol 2.5 mcg (2 inhalations) once daily"
+            ]
+          }
+        ],
+        "alternative": [
+          "Short-acting bronchodilators only for very mild, intermittent symptoms"
+        ]
+      },
+      "B": {
+        "name": "More Symptomatic, Low Risk",
+        "criteria": {
+          "symptoms": {
+            "mMRC": "≥2",
+            "CAT": "≥10"
+          },
+          "exacerbations": {
+            "count": 0,
+            "hospitalization": false
+          }
+        },
+        "treatment_strategy": "Dual bronchodilator therapy (LAMA-LABA)",
+        "first_line": [
+          {
+            "class": "LAMA-LABA Combination",
+            "rationale": "Superior symptom control and lung function improvement",
+            "options": [
+              "Tiotropium-Olodaterol 2.5/2.5 mcg, 2 inhalations once daily (SMI)",
+              "Umeclidinium-Vilanterol 62.5/25 mcg, 1 inhalation once daily (DPI)",
+              "Glycopyrronium-Indacaterol 50/110 mcg once daily (DPI)",
+              "Glycopyrrolate-Formoterol 9/4.8 mcg, 2 inhalations twice daily (MDI)",
+              "Aclidinium-Formoterol 400/12 mcg once daily (DPI)"
+            ]
+          }
+        ],
+        "alternative": [
+          "Single long-acting bronchodilator (LAMA preferred over LABA) if dual therapy not available or tolerated"
+        ],
+        "special_considerations": [
+          {
+            "condition": "Asthma-COPD overlap",
+            "recommendation": "Consider adding ICS to LAMA-LABA therapy"
+          }
+        ]
+      },
+      "E": {
+        "name": "High Risk of Exacerbations",
+        "criteria": {
+          "exacerbations": {
+            "count": "≥1 moderate or severe",
+            "definition": "Requiring systemic antibiotics/glucocorticoids or hospitalization"
+          }
+        },
+        "treatment_strategy": "LAMA-LABA (may escalate to triple therapy based on eosinophils)",
+        "first_line": [
+          {
+            "class": "LAMA-LABA Combination",
+            "rationale": "Reduces exacerbations with lower pneumonia risk than ICS-containing regimens",
+            "options": [
+              "Tiotropium-Olodaterol 2.5/2.5 mcg, 2 inhalations once daily (SMI)",
+              "Umeclidinium-Vilanterol 62.5/25 mcg, 1 inhalation once daily (DPI)",
+              "Glycopyrronium-Indacaterol 50/110 mcg once daily (DPI)",
+              "Glycopyrrolate-Formoterol 9/4.8 mcg, 2 inhalations twice daily (MDI)",
+              "Aclidinium-Formoterol 400/12 mcg once daily (DPI)"
+            ]
+          }
+        ],
+        "eosinophil_guided_therapy": {
+          "high_eosinophils": {
+            "threshold": "≥300 cells/μL",
+            "recommendation": "Consider triple therapy (LAMA-LABA-ICS) upfront",
+            "rationale": "Greater ICS benefit, reduced exacerbation risk",
+            "options": [
+              "LAMA + LABA-ICS combination",
+              "Single-inhaler triple therapy if available"
+            ]
+          },
+          "intermediate_eosinophils": {
+            "threshold": "100-299 cells/μL",
+            "recommendation": "Start LAMA-LABA, consider adding ICS if frequent exacerbations persist",
+            "rationale": "Moderate ICS benefit"
+          },
+          "low_eosinophils": {
+            "threshold": "<100 cells/μL",
+            "recommendation": "Avoid ICS if possible",
+            "rationale": "Minimal ICS benefit, increased pneumonia risk"
+          }
+        },
+        "special_considerations": [
+          {
+            "condition": "Recent hospitalization for exacerbation",
+            "recommendation": "Consider triple therapy (LAMA-LABA-ICS) regardless of eosinophil count"
+          },
+          {
+            "condition": "≥2 moderate exacerbations or ≥1 hospitalization per year",
+            "recommendation": "Strong consideration for triple therapy"
+          },
+          {
+            "condition": "Asthma-COPD overlap",
+            "recommendation": "Triple therapy (LAMA-LABA-ICS) preferred"
+          }
+        ]
+      }
+    }
+  },
+  "rescue_therapy": {
+    "indication": "All patients should have rescue bronchodilator for symptom relief",
+    "options": {
+      "patients_on_LAMA": [
+        {
+          "medication": "Albuterol (SABA)",
+          "dose": "90 mcg, 2 puffs as needed",
+          "notes": "Preferred for most patients on LAMA therapy"
+        },
+        {
+          "medication": "Levalbuterol (SABA)",
+          "dose": "45 mcg, 2 puffs as needed",
+          "notes": "Alternative SABA"
+        }
+      ],
+      "patients_not_on_LAMA": [
+        {
+          "medication": "Ipratropium-Albuterol (SAMA-SABA)",
+          "dose": "20/100 mcg, 1 inhalation every 4-6 hours as needed",
+          "notes": "Preferred combination for enhanced bronchodilation"
+        }
+      ]
+    },
+    "cautions": [
+      "Avoid regular scheduled use of SABA",
+      "Frequent SABA use (>2 times per week) indicates need for long-acting therapy",
+      "Monitor for side effects: tremor, tachycardia, hypokalemia"
+    ]
+  },
+  "spirometry_classification": {
+    "GOLD_1": {
+      "FEV1_percent_predicted": "≥80%",
+      "severity": "Mild airflow limitation",
+      "notes": "May be asymptomatic or have minimal symptoms"
+    },
+    "GOLD_2": {
+      "FEV1_percent_predicted": "50-79%",
+      "severity": "Moderate airflow limitation",
+      "notes": "Usually seek medical attention due to symptoms"
+    },
+    "GOLD_3": {
+      "FEV1_percent_predicted": "30-49%",
+      "severity": "Severe airflow limitation",
+      "notes": "Significant impact on quality of life"
+    },
+    "GOLD_4": {
+      "FEV1_percent_predicted": "<30%",
+      "severity": "Very severe airflow limitation",
+      "notes": "Life-threatening; may require oxygen therapy"
+    }
+  },
+  "non_pharmacologic_management": {
+    "essential_interventions": [
+      {
+        "intervention": "Smoking cessation",
+        "priority": "Highest",
+        "notes": "Single most effective intervention to slow disease progression"
+      },
+      {
+        "intervention": "Pulmonary rehabilitation",
+        "priority": "High",
+        "notes": "Improves symptoms, exercise capacity, and quality of life"
+      },
+      {
+        "intervention": "Vaccinations",
+        "priority": "High",
+        "vaccines": [
+          "Influenza (annual)",
+          "Pneumococcal (PCV20 or PCV15 + PPSV23)",
+          "COVID-19",
+          "Respiratory syncytial virus (RSV) for adults ≥60 years"
+        ]
+      }
+    ],
+    "additional_interventions": [
+      "Regular physical activity and exercise training",
+      "Nutritional assessment and optimization",
+      "Oxygen therapy if resting SpO2 ≤88% or PaO2 ≤55 mmHg",
+      "Education on inhaler technique",
+      "Self-management education and action plans",
+      "Psychosocial support"
+    ]
+  },
+  "adverse_effects": {
+    "LABA": [
+      "Tremor",
+      "Tachycardia",
+      "Palpitations",
+      "Hypokalemia (with high doses)",
+      "Rarely: arrhythmias"
+    ],
+    "LAMA": [
+      "Dry mouth (most common)",
+      "Urinary retention (especially in patients with BPH)",
+      "Narrow-angle glaucoma exacerbation",
+      "Constipation"
+    ],
+    "ICS": [
+      "Pneumonia (increased risk)",
+      "Oropharyngeal candidiasis",
+      "Dysphonia",
+      "Skin bruising",
+      "Cataracts (long-term use)",
+      "Osteoporosis risk (high doses, long-term)"
+    ]
+  },
+  "follow_up": {
+    "initial_visit": "2-4 weeks after starting new therapy",
+    "stable_patients": "Every 3-6 months",
+    "monitoring_parameters": [
+      "Symptom control (mMRC, CAT score)",
+      "Exacerbation frequency and severity",
+      "Medication adherence and inhaler technique",
+      "Adverse effects",
+      "Spirometry (annually or as needed)",
+      "Oxygen saturation",
+      "Comorbidities",
+      "Smoking status"
+    ],
+    "therapy_adjustment": {
+      "insufficient_symptom_control": "Escalate therapy (add bronchodilator or ICS)",
+      "persistent_exacerbations": "Consider triple therapy, roflumilast, or macrolide",
+      "side_effects": "Switch to alternative agent or reduce dose",
+      "well_controlled": "Continue current therapy"
+    }
+  },
+  "referral_criteria": {
+    "pulmonology": [
+      "Diagnostic uncertainty",
+      "Severe COPD (GOLD 3-4)",
+      "Frequent exacerbations despite optimal therapy",
+      "Rapid decline in lung function",
+      "Hemoptysis",
+      "Consideration for oxygen therapy",
+      "Consideration for lung volume reduction or transplant"
+    ],
+    "pulmonary_rehabilitation": [
+      "All symptomatic patients with COPD",
+      "Especially those with functional limitations"
+    ]
+  }
+}
