@@ -1,0 +1,420 @@
+{
+  "medication_classes": {
+    "LABA": {
+      "name": "Long-Acting Beta-2 Agonists",
+      "mechanism": "Bronchodilation via beta-2 receptor stimulation, relaxes smooth muscle",
+      "duration": "12-24 hours",
+      "medications": [
+        {
+          "name": "Salmeterol",
+          "brand_names": ["Serevent"],
+          "dose": "50 mcg",
+          "frequency": "Twice daily",
+          "device": "Dry powder inhaler (DPI)",
+          "onset": "Slow (120 minutes)",
+          "duration": "12 hours",
+          "special_notes": "Most studied standalone LABA, slow onset limits use as rescue"
+        },
+        {
+          "name": "Formoterol",
+          "brand_names": ["Foradil", "Perforomist"],
+          "dose": "20 mcg (DPI) or 20 mcg/2 mL (nebulizer)",
+          "frequency": "Twice daily",
+          "device": "DPI or nebulizer solution",
+          "onset": "Rapid (3 minutes)",
+          "duration": "12 hours",
+          "special_notes": "Rapid onset, available in nebulized form"
+        },
+        {
+          "name": "Arformoterol",
+          "brand_names": ["Brovana"],
+          "dose": "15 mcg/2 mL",
+          "frequency": "Twice daily",
+          "device": "Nebulizer solution only",
+          "onset": "Rapid",
+          "duration": "12 hours",
+          "special_notes": "R-enantiomer of formoterol, nebulized only"
+        },
+        {
+          "name": "Indacaterol",
+          "brand_names": ["Arcapta"],
+          "dose": "75-150 mcg",
+          "frequency": "Once daily",
+          "device": "DPI",
+          "onset": "Rapid",
+          "duration": "24 hours",
+          "special_notes": "Once-daily dosing, withdrawn from US/Canada market but available elsewhere"
+        },
+        {
+          "name": "Olodaterol",
+          "brand_names": ["Striverdi"],
+          "dose": "2.5 mcg per actuation (2 inhalations)",
+          "frequency": "Once daily",
+          "device": "Soft mist inhaler (SMI)",
+          "onset": "Rapid",
+          "duration": "24 hours",
+          "special_notes": "Soft mist delivery, helpful for poor inspiratory flow"
+        },
+        {
+          "name": "Vilanterol",
+          "brand_names": ["Available only in combinations"],
+          "dose": "25 mcg",
+          "frequency": "Once daily",
+          "device": "DPI",
+          "onset": "Intermediate (15 minutes)",
+          "duration": "24 hours",
+          "special_notes": "Available only in combination with umeclidinium or fluticasone"
+        }
+      ]
+    },
+    "LAMA": {
+      "name": "Long-Acting Muscarinic Antagonists",
+      "mechanism": "Bronchodilation via cholinergic blockade, reduces vagal tone",
+      "duration": "12-24 hours",
+      "medications": [
+        {
+          "name": "Tiotropium",
+          "brand_names": ["Spiriva HandiHaler", "Spiriva Respimat"],
+          "dose": "18 mcg (DPI) or 2.5 mcg per actuation, 2 inhalations (SMI)",
+          "frequency": "Once daily",
+          "device": "DPI or SMI",
+          "onset": "30 minutes",
+          "duration": "24 hours",
+          "special_notes": "Most extensively studied LAMA, reduces hyperinflation, excreted renally"
+        },
+        {
+          "name": "Aclidinium",
+          "brand_names": ["Tudorza"],
+          "dose": "400 mcg",
+          "frequency": "Twice daily",
+          "device": "DPI",
+          "onset": "Minutes",
+          "duration": "12 hours",
+          "special_notes": "Very low bioavailability (<5%), may reduce systemic side effects"
+        },
+        {
+          "name": "Umeclidinium",
+          "brand_names": ["Incruse Ellipta"],
+          "dose": "62.5 mcg",
+          "frequency": "Once daily",
+          "device": "DPI",
+          "onset": "Minutes, peak at 3 hours",
+          "duration": "24 hours",
+          "special_notes": "Once-daily dosing, sustained bronchodilation"
+        },
+        {
+          "name": "Glycopyrrolate (Glycopyrronium)",
+          "brand_names": ["Seebri", "Lonhala"],
+          "dose": "50 mcg (DPI) or 25 mcg twice daily",
+          "frequency": "Once or twice daily depending on formulation",
+          "device": "DPI or nebulizer",
+          "onset": "Minutes",
+          "duration": "12-24 hours",
+          "special_notes": "Similar efficacy to tiotropium, excreted renally"
+        },
+        {
+          "name": "Revefenacin",
+          "brand_names": ["Yupelri"],
+          "dose": "175 mcg/3 mL",
+          "frequency": "Once daily",
+          "device": "Standard jet nebulizer only",
+          "onset": "Minutes",
+          "duration": "24 hours",
+          "special_notes": "Nebulized LAMA, reserved for patients unable to use inhalers, avoid in hepatic impairment"
+        }
+      ]
+    },
+    "LAMA_LABA_combinations": {
+      "name": "LAMA-LABA Fixed-Dose Combinations",
+      "rationale": "Improved adherence, complementary mechanisms, reduced pill burden",
+      "medications": [
+        {
+          "name": "Tiotropium-Olodaterol",
+          "brand_names": ["Stiolto Respimat"],
+          "components": "Tiotropium 2.5 mcg + Olodaterol 2.5 mcg per actuation",
+          "dose": "2 inhalations",
+          "frequency": "Once daily",
+          "device": "SMI",
+          "special_notes": "Soft mist delivery system"
+        },
+        {
+          "name": "Umeclidinium-Vilanterol",
+          "brand_names": ["Anoro Ellipta"],
+          "components": "Umeclidinium 62.5 mcg + Vilanterol 25 mcg",
+          "dose": "1 inhalation",
+          "frequency": "Once daily",
+          "device": "DPI",
+          "special_notes": "Simple once-daily dosing"
+        },
+        {
+          "name": "Glycopyrronium-Indacaterol",
+          "brand_names": ["Ultibro", "Utibron"],
+          "components": "Glycopyrronium 50 mcg + Indacaterol 110 mcg",
+          "dose": "1 capsule",
+          "frequency": "Once daily",
+          "device": "DPI",
+          "special_notes": "Available in some regions, not currently marketed in US"
+        },
+        {
+          "name": "Glycopyrrolate-Formoterol",
+          "brand_names": ["Bevespi Aerosphere"],
+          "components": "Glycopyrrolate 9 mcg + Formoterol 4.8 mcg per actuation",
+          "dose": "2 inhalations",
+          "frequency": "Twice daily",
+          "device": "Metered dose inhaler (MDI)",
+          "special_notes": "MDI formulation, twice-daily dosing"
+        },
+        {
+          "name": "Aclidinium-Formoterol",
+          "brand_names": ["Duaklir"],
+          "components": "Aclidinium 400 mcg + Formoterol 12 mcg",
+          "dose": "1 inhalation",
+          "frequency": "Twice daily",
+          "device": "DPI",
+          "special_notes": "Twice-daily dosing"
+        }
+      ]
+    },
+    "LABA_ICS_combinations": {
+      "name": "LABA-ICS Fixed-Dose Combinations",
+      "indication": "Alternative for Group E patients who cannot use LAMA",
+      "medications": [
+        {
+          "name": "Salmeterol-Fluticasone",
+          "brand_names": ["Advair Diskus", "Advair HFA"],
+          "components": "Salmeterol 50 mcg + Fluticasone 100, 250, or 500 mcg",
+          "dose": "1 inhalation",
+          "frequency": "Twice daily",
+          "device": "DPI or MDI",
+          "special_notes": "Most studied LABA-ICS combination"
+        },
+        {
+          "name": "Formoterol-Budesonide",
+          "brand_names": ["Symbicort"],
+          "components": "Formoterol 4.5 mcg + Budesonide 80 or 160 mcg",
+          "dose": "2 inhalations",
+          "frequency": "Twice daily",
+          "device": "MDI",
+          "special_notes": "Rapid-onset LABA component"
+        },
+        {
+          "name": "Vilanterol-Fluticasone furoate",
+          "brand_names": ["Breo Ellipta"],
+          "components": "Vilanterol 25 mcg + Fluticasone furoate 100 or 200 mcg",
+          "dose": "1 inhalation",
+          "frequency": "Once daily",
+          "device": "DPI",
+          "special_notes": "Once-daily dosing"
+        },
+        {
+          "name": "Formoterol-Mometasone",
+          "brand_names": ["Dulera"],
+          "components": "Formoterol 5 mcg + Mometasone 100 or 200 mcg",
+          "dose": "2 inhalations",
+          "frequency": "Twice daily",
+          "device": "MDI",
+          "special_notes": "Available for COPD in some regions"
+        }
+      ]
+    },
+    "triple_therapy": {
+      "name": "LAMA-LABA-ICS Triple Therapy",
+      "indication": "Group E with high eosinophils (≥300 cells/μL) or frequent exacerbations",
+      "approaches": [
+        "Single-inhaler triple therapy (preferred for adherence)",
+        "LAMA + LABA-ICS combination (two inhalers)",
+        "Three separate inhalers (not preferred)"
+      ],
+      "medications": [
+        {
+          "name": "Umeclidinium-Vilanterol-Fluticasone furoate",
+          "brand_names": ["Trelegy Ellipta"],
+          "components": "Umeclidinium 62.5 mcg + Vilanterol 25 mcg + Fluticasone furoate 100 mcg",
+          "dose": "1 inhalation",
+          "frequency": "Once daily",
+          "device": "DPI",
+          "special_notes": "Single-inhaler triple therapy, once-daily"
+        },
+        {
+          "name": "Glycopyrronium-Formoterol-Beclometasone",
+          "brand_names": ["Trimbow"],
+          "components": "Glycopyrronium 10 mcg + Formoterol 5 mcg + Beclometasone 87 mcg",
+          "dose": "2 inhalations",
+          "frequency": "Twice daily",
+          "device": "MDI",
+          "special_notes": "Extrafine particle formulation"
+        }
+      ]
+    },
+    "SABA": {
+      "name": "Short-Acting Beta-2 Agonists",
+      "indication": "Rescue therapy for all patients",
+      "medications": [
+        {
+          "name": "Albuterol (Salbutamol)",
+          "brand_names": ["ProAir", "Ventolin", "Proventil"],
+          "dose": "90 mcg per actuation",
+          "frequency": "2 puffs as needed, up to every 4-6 hours",
+          "device": "MDI or nebulizer solution (2.5 mg/3 mL)",
+          "onset": "5 minutes",
+          "duration": "4-6 hours",
+          "special_notes": "Most commonly used rescue bronchodilator"
+        },
+        {
+          "name": "Levalbuterol",
+          "brand_names": ["Xopenex"],
+          "dose": "45 mcg per actuation",
+          "frequency": "2 puffs as needed, up to every 4-6 hours",
+          "device": "MDI or nebulizer solution",
+          "onset": "5 minutes",
+          "duration": "4-6 hours",
+          "special_notes": "R-enantiomer of albuterol, may have fewer cardiovascular effects"
+        }
+      ]
+    },
+    "SAMA": {
+      "name": "Short-Acting Muscarinic Antagonists",
+      "indication": "Rescue therapy (combination with SABA for patients not on LAMA)",
+      "medications": [
+        {
+          "name": "Ipratropium",
+          "brand_names": ["Atrovent"],
+          "dose": "17 mcg per actuation",
+          "frequency": "2 inhalations 4 times daily as needed",
+          "device": "MDI or nebulizer solution (0.5 mg/2.5 mL)",
+          "onset": "15 minutes",
+          "duration": "4-6 hours",
+          "special_notes": "Not recommended with LAMA therapy due to cumulative anticholinergic effects"
+        }
+      ]
+    },
+    "SABA_SAMA_combinations": {
+      "name": "SABA-SAMA Combinations",
+      "indication": "Rescue therapy for patients not on LAMA",
+      "medications": [
+        {
+          "name": "Ipratropium-Albuterol",
+          "brand_names": ["Combivent Respimat", "DuoNeb"],
+          "components": "Ipratropium 20 mcg + Albuterol 100 mcg per actuation",
+          "dose": "1 inhalation",
+          "frequency": "Every 4-6 hours as needed",
+          "device": "SMI or nebulizer solution (0.5 mg ipratropium + 2.5 mg albuterol/3 mL)",
+          "special_notes": "Synergistic bronchodilation, preferred rescue for patients not on LAMA"
+        }
+      ]
+    }
+  },
+  "device_types": {
+    "MDI": {
+      "name": "Metered Dose Inhaler",
+      "technique_key_points": [
+        "Shake inhaler before use",
+        "Exhale completely",
+        "Seal lips around mouthpiece",
+        "Press canister while inhaling slowly and deeply",
+        "Hold breath for 10 seconds",
+        "Wait 30-60 seconds between puffs"
+      ],
+      "advantages": ["Portable", "Quick", "Consistent dose"],
+      "disadvantages": ["Requires coordination", "Propellant spray can trigger cough"],
+      "spacer_recommended": true
+    },
+    "DPI": {
+      "name": "Dry Powder Inhaler",
+      "technique_key_points": [
+        "Do not shake",
+        "Exhale completely away from device",
+        "Seal lips around mouthpiece",
+        "Inhale rapidly and deeply (breath-actuated)",
+        "Hold breath for 10 seconds"
+      ],
+      "advantages": ["Breath-actuated", "No propellant", "Less coordination needed"],
+      "disadvantages": ["Requires adequate inspiratory flow", "Humidity sensitive"],
+      "spacer_recommended": false
+    },
+    "SMI": {
+      "name": "Soft Mist Inhaler",
+      "technique_key_points": [
+        "Load dose by turning base",
+        "Exhale completely",
+        "Seal lips around mouthpiece",
+        "Press release button while inhaling slowly",
+        "Hold breath for 10 seconds"
+      ],
+      "advantages": ["Slow-moving mist", "Good for poor inspiratory flow", "High lung deposition"],
+      "disadvantages": ["More steps to use", "More expensive"],
+      "spacer_recommended": false
+    },
+    "Nebulizer": {
+      "name": "Nebulizer",
+      "technique_key_points": [
+        "Add medication to nebulizer cup",
+        "Breathe normally through mouthpiece or mask",
+        "Continue until mist stops (8-15 minutes)"
+      ],
+      "advantages": ["No coordination needed", "High dose delivery", "Good for severe disease"],
+      "disadvantages": ["Time-consuming", "Requires equipment", "Not portable"],
+      "spacer_recommended": false
+    }
+  },
+  "side_effects_management": {
+    "LABA_side_effects": {
+      "tremor": "Reduce dose or switch to LAMA",
+      "tachycardia": "Monitor heart rate, consider dose reduction or LAMA alternative",
+      "palpitations": "ECG if persistent, consider switching to LAMA",
+      "hypokalemia": "Monitor potassium, especially with high doses or diuretic use"
+    },
+    "LAMA_side_effects": {
+      "dry_mouth": "Most common, rinse mouth after use, sips of water, sugar-free candy",
+      "urinary_retention": "Monitor in patients with BPH, consider LABA alternative",
+      "constipation": "Increase fiber and fluids, consider stool softener",
+      "blurred_vision": "Ensure mist not directed toward eyes, consider alternative if persistent"
+    },
+    "ICS_side_effects": {
+      "oral_candidiasis": "Rinse mouth and spit after each use, treat with antifungal if occurs",
+      "dysphonia": "Rinse mouth after use, voice rest, reduce dose if severe",
+      "pneumonia_risk": "Increased risk especially with high doses; use lowest effective dose",
+      "bruising": "Common with long-term use, generally not serious",
+      "cataracts": "Screen annually with long-term use",
+      "osteoporosis": "Bone density screening, calcium/vitamin D supplementation"
+    }
+  },
+  "drug_interactions": {
+    "LABA": [
+      "Beta-blockers: may reduce effectiveness or cause bronchospasm",
+      "MAO inhibitors, tricyclic antidepressants: may potentiate cardiovascular effects",
+      "Diuretics: may worsen hypokalemia",
+      "QT-prolonging drugs: additive effect on QT interval"
+    ],
+    "LAMA": [
+      "Other anticholinergics: additive anticholinergic effects",
+      "Drugs that cause urinary retention: increased risk"
+    ],
+    "ICS": [
+      "Strong CYP3A4 inhibitors (ritonavir, ketoconazole): increased systemic exposure",
+      "Live vaccines: theoretical risk with high-dose ICS"
+    ]
+  },
+  "special_populations": {
+    "renal_impairment": {
+      "LAMA": "Tiotropium and glycopyrrolate excreted renally - monitor for anticholinergic effects; aclidinium safer (low bioavailability)",
+      "LABA": "Generally safe, no dose adjustment needed"
+    },
+    "hepatic_impairment": {
+      "revefenacin": "Avoid use in hepatic impairment",
+      "other_medications": "Generally safe with dose adjustments as needed"
+    },
+    "cardiovascular_disease": {
+      "monitoring": "Monitor for arrhythmias, tachycardia with LABA use",
+      "safety": "Both LABA and LAMA generally safe; individualize therapy"
+    },
+    "narrow_angle_glaucoma": {
+      "LAMA": "Use with caution, ensure mist not directed toward eyes",
+      "LABA_ICS": "Safe alternatives"
+    },
+    "BPH": {
+      "LAMA": "Increased urinary retention risk; monitor closely or use LABA",
+      "aclidinium": "May be safer due to low bioavailability"
+    }
+  }
+}
